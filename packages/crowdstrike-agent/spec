@@ -4,4 +4,4 @@ name: crowdstrike-agent
 dependencies: []
 
 files:
-  - falcon-sensor_5.12.0-7603_amd64.deb
+  - falcon-sensor_6.37.0-13402_amd64.deb

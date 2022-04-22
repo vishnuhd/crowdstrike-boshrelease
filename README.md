@@ -18,19 +18,19 @@
 * Copy Falcon sensor agent (Crowdstrike agent) to `src` directory, example:
   ```
   ├ src
-  │   ├  falcon-sensor_5.12.0-7603_amd64.deb
+  │   ├  falcon-sensor_6.37.0-13402_amd64.deb
   ```
 
 * Register blobs or a new version using the following command:
   ```
-  bosh add-blob src/falcon-sensor_5.12.0-7603_amd64.deb falcon-sensor_5.12.0-7603_amd64.deb
+  bosh add-blob src/falcon-sensor_6.37.0-13402_amd64.deb falcon-sensor_6.37.0-13402_amd64.deb
   ```
 This populates the `blobs.yml` with blob filename, filename size, and SHA
 
 * Update `packages > crowdstrike-agent > spec`, to include the blob
   ```
   files:
-    - falcon-sensor_5.12.0-7603_amd64.deb
+    - falcon-sensor_6.37.0-13402_amd64.deb
   ```
 
 * Update the file under `config > final.yml` to include the `blobstore_path` variable:
@@ -61,7 +61,7 @@ This populates the `blobs.yml` with blob filename, filename size, and SHA
 
 * Generate runtime config
   ```
-  bosh int runtime-config/crowdstrike.yml --var=release_version=1 --var=crowdstrike_customer_id=xxxxxxxxxx > generated_runtime_config.yml
+  bosh int runtime-config/crowdstrike.yml --var=release_version=1 --var=crowdstrike_customer_id='xxxxxxxxxx' --var=crowdstrike_proxy_hostname='10.0.0.x' > generated_runtime_config.yml
   ```
 
 * Update the runtime config
