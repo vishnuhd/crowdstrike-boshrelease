@@ -10,3 +10,5 @@ packages:
 properties:
   customer_id:
     description: This is the customer id required to connect the agent to the SaaS solution
+  proxy_hostname:
+    description: This is the crowdstrike proxy hostname required to connect the proxy which forwards to the SaaS solution
