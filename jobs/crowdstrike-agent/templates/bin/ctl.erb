@@ -7,6 +7,7 @@ RUN_DIR=/var/vcap/sys/run/crowdstrike-agent
 LOG_DIR=/var/vcap/sys/log/crowdstrike-agent
 PIDFILE=${RUN_DIR}/pid
 CUSTOMER_ID="<%= p("customer_id") %>"
+PROXY_HOSTNAME="<%= p("proxy_hostname") %>"
 
 case $1 in
 
@@ -19,6 +20,10 @@ case $1 in
     # . ${JOB_DIR}/bin/link-agent.sh
 
     /opt/CrowdStrike/falconctl -s -f --cid=${CUSTOMER_ID}
+    /opt/CrowdStrike/falconctl -s -f --aph=${PROXY_HOSTNAME} --app=8090
+    /opt/CrowdStrike/falconctl -s --apd=FALSE
+    /opt/CrowdStrike/falconctl -g --aph --app --apd
+
 
     /opt/CrowdStrike/falcond
 
