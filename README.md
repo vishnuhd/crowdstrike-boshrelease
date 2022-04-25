@@ -1,6 +1,10 @@
 # Crowdstrike Bosh release
 
-* Clone this repository and execute:
+* Open ssh connection to any VM having access to BOSH env.
+
+* Add the required Bosh parameters to the env like BOSH_ALL_PROXY, BOSH_ENVIRONMENT, etc.
+
+* Clone this repository, cd into its directory and execute:
 
   `bosh init-release`
 
@@ -46,12 +50,12 @@ This populates the `blobs.yml` with blob filename, filename size, and SHA
 
 * Create the Release
   ```
-  bosh create-release --final --force --tarball=crowdstrike-boshrelease.tgz
+  bosh create-release --version='6.37.0' --final --force --tarball=crowdstrike-boshrelease.tgz
   ```
 
 * Update the file under `runtime-config > crowstrike.yml` file and update the version number, from the output of the previous command
   ```
-  version: 1
+  version: 6.37.0
   ```
 
 * Upload the bosh Release
@@ -61,7 +65,7 @@ This populates the `blobs.yml` with blob filename, filename size, and SHA
 
 * Generate runtime config
   ```
-  bosh int runtime-config/crowdstrike.yml --var=release_version=1 --var=crowdstrike_customer_id='xxxxxxxxxx' --var=crowdstrike_proxy_hostname='10.0.0.x' > generated_runtime_config.yml
+  bosh int runtime-config/crowdstrike.yml --var=release_version='6.37.0' --var=crowdstrike_customer_id='xxxxxxxxxx' --var=crowdstrike_proxy_hostname='10.0.0.x' > generated_runtime_config.yml
   ```
 
 * Update the runtime config
