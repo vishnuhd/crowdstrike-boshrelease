@@ -4,9 +4,11 @@
 
 * Add the required Bosh parameters to the env like BOSH_ALL_PROXY, BOSH_ENVIRONMENT, etc.
 
-* Clone this repository, cd into its directory and execute:
-
-  `bosh init-release`
+* Clone this repository (NOTE : make sure the name of the directory is `crowdstrike-boshrelease` after the clone without any suffix like `-main`), cd into its directory and execute:
+  ```
+  cd crowdstrike-boshrelease
+  bosh init-release
+  ```
 
 
 * The config directory is created with the following contents:
