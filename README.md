@@ -87,6 +87,6 @@ crowdstrike-boshrelease         6.37.0                                          
 ```
 
 * For upgrading the `crowdstrike-boshrelease`, follow the same instructions as above, but making sure of the following :
-- The release name should be same as previous - `crowdstrike-boshrelease`
-- The version should be updated whereever required in the above instructions.
+  - The release name should be same as previous - `crowdstrike-boshrelease`
+  - The version should be updated whereever required in the above instructions.
 
