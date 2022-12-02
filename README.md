@@ -76,3 +76,17 @@ This populates the `blobs.yml` with blob filename, filename size, and SHA
   ```
 
 * Trigger `Apply Changes` from Ops Manager
+
+* After the deployment is complete check the bosh releases
+```
+bosh releases | grep crowd
+crowdstrike-boshrelease         6.47.0*                                                 non-git
+crowdstrike-boshrelease         6.37.0                                                  non-git
+
+* represents the current version in use, the older version can be cleaned using 'bosh cleanup' command but it happens automatically when TKGi is upgraded.
+```
+
+* For upgrading the `crowdstrike-boshrelease`, follow the same instructions as above, but making sure of the following :
+- The release name should be same as previous - `crowdstrike-boshrelease`
+- The version should be updated whereever required in the above instructions.
+
